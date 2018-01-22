@@ -21,28 +21,28 @@
         android:layout_height="wrap_content"
         android:hint="Team name or city"
         android:layout_below="@id/tv_teamSearchFrag_addATeam"
-        android:id="@+id/et_teamSearchFrag_searchTeam"/>
+        android:id="@+id/et_teamSearchFrag_textEntered"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_teamSearchFrag_searchTeam"
+        android:layout_below="@id/et_teamSearchFrag_textEntered"
         android:text="Search"
         android:id="@+id/bt_teamSearchFrag_search"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_teamSearchFrag_searchTeam"
+        android:layout_below="@id/et_teamSearchFrag_textEntered"
         android:layout_toEndOf="@id/bt_teamSearchFrag_search"
         android:text="Cancel"
         android:id="@+id/bt_teamSearchFrag_cancel"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:paddingTop="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/bt_teamSearchFrag_search"
-        android:id="@+id/recycler_view_teamSearch_fragment">
-    </android.support.v7.widget.RecyclerView>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:paddingTop="16dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/bt_teamSearchFrag_search"-->
+        <!--android:id="@+id/recycler_view_teamSearch_fragment">-->
+    <!--</android.support.v7.widget.RecyclerView>-->
 
 
 </RelativeLayout>

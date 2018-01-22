@@ -1,6 +1,7 @@
 package csc214.kotlintest.shouldiwatchkotlin
 
-import android.app.Fragment
+//import android.app.Fragment
+import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -10,6 +11,7 @@ import android.widget.Toolbar
 import kotlinx.android.synthetic.main.test_frag.*
 
 import org.jetbrains.anko.*
+import org.jetbrains.anko.support.v4.toast
 
 /**
  * Created by Tim on 1/21/18.

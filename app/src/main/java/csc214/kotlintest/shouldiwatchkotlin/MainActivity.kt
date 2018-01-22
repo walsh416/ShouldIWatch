@@ -8,11 +8,14 @@ import android.view.MenuItem
 import android.widget.Toast
 
 import com.google.api.client.googleapis.*
+import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
 
     val TAG:String = "MainActivityTAG"
 
+    val testFrag = TestFrag()
+    var searchFrag = SearchFrag()
 
 
 
@@ -21,11 +24,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 //        setHasOptionsMenu(true)
 
-        val testFrag = TestFrag()
-        testFrag.arguments = intent.extras
-        val transaction = fragmentManager.beginTransaction()
-        transaction.add(R.id.fl_frame_mainActivity, testFrag)
-        transaction.commit()
+//        testFrag.arguments = intent.extras
+//        val transaction = fragmentManager.beginTransaction()
+//        transaction.add(R.id.fl_frame_mainActivity, testFrag)
+//        transaction.commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -38,15 +40,19 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
             R.id.menu_refreshGames -> {
-                Toast.makeText(this, "Refresh Games", Toast.LENGTH_SHORT).show()
+                toast("Refresh Games")
                 return super.onOptionsItemSelected(item)
             }
             R.id.menu_addTeam -> {
-                Toast.makeText(this, "Add Team", Toast.LENGTH_SHORT).show()
+                toast("Add team")
+                searchFrag = SearchFrag()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.fl_frame_mainActivity, searchFrag)
+                        .commit()
                 return super.onOptionsItemSelected(item)
             }
             R.id.menu_settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+                toast("Settings")
                 return super.onOptionsItemSelected(item)
             }
             else -> return super.onOptionsItemSelected(item)
