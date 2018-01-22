@@ -1,0 +1,48 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search for a team you want to know about"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="16dp"
+        android:id="@+id/tv_teamSearchFrag_addATeam"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Team name or city"
+        android:layout_below="@id/tv_teamSearchFrag_addATeam"
+        android:id="@+id/et_teamSearchFrag_searchTeam"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_teamSearchFrag_searchTeam"
+        android:text="Search"
+        android:id="@+id/bt_teamSearchFrag_search"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_teamSearchFrag_searchTeam"
+        android:layout_toEndOf="@id/bt_teamSearchFrag_search"
+        android:text="Cancel"
+        android:id="@+id/bt_teamSearchFrag_cancel"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:paddingTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bt_teamSearchFrag_search"
+        android:id="@+id/recycler_view_teamSearch_fragment">
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>
