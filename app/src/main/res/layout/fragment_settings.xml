@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="largest scoring deficit -2 means losing 3 5 is still a good game"
+        android:id="@+id/tv_settingsFrag_scoreDeficit"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
+    <!--<NumberPicker-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toEndOf="@id/tv_settingsFrag_scoreDeficit"></NumberPicker>-->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="scoring deficit"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:layout_below="@id/tv_settingsFrag_scoreDeficit"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/et_settingsFrag_scoreDeficit"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:text="number of days to go back"
+        android:id="@+id/tv_settingsFrag_numDays"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/et_settingsFrag_scoreDeficit"
+        android:gravity="center"/>
+    <!--<NumberPicker-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toEndOf="@id/tv_settingsFrag_scoreDeficit"></NumberPicker>-->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="number of days"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_below="@id/tv_settingsFrag_numDays"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/et_settingsFrag_numDays"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:text="number of games to retrieve"
+        android:id="@+id/tv_settingsFrag_numGames"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/et_settingsFrag_numDays"/>
+    <!--<NumberPicker-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toEndOf="@id/tv_settingsFrag_scoreDeficit"></NumberPicker>-->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="number of games"
+        android:gravity="center"
+        android:inputType="number"
+        android:layout_below="@id/tv_settingsFrag_numGames"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/et_settingsFrag_numGames"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_settingsFrag_numGames"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="24dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="okay"
+            android:id="@+id/bt_settingsFrag_okay"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="cancel"
+            android:id="@+id/bt_settingsFrag_cancel"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
