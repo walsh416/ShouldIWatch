@@ -32,9 +32,12 @@ class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
 
     override fun onCancel() {
         toast("Canceled!!!")
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_frame_mainActivity, testFrag)
-                .commit()
+//        supportFragmentManager.beginTransaction()
+////                .replace(R.id.fl_frame_mainActivity, testFrag)
+//                .add(R.id.fl_frame_mainActivity, testFrag)
+//                .addToBackStack(null)
+//                .commit()
+        onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
                 supportFragmentManager.beginTransaction()
 //                        .replace(R.id.fl_frame_mainActivity, searchFrag)
                         .add(R.id.fl_frame_mainActivity, searchFrag)
+                        .addToBackStack(null)
                         .commit()
                 return super.onOptionsItemSelected(item)
             }
@@ -65,6 +69,19 @@ class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
             }
             else -> return super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onBackPressed() {
+        val count = supportFragmentManager.backStackEntryCount
+
+        if(count == 0){
+            super.onBackPressed()
+        }
+        else {
+            supportFragmentManager.popBackStack()
+        }
+
+
     }
 
 }
