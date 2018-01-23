@@ -1,6 +1,7 @@
 package csc214.kotlintest.shouldiwatchkotlin
 
 //import android.app.Fragment
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.support.v4.app.Fragment
@@ -16,12 +17,23 @@ import org.jetbrains.anko.support.v4.toast
 /**
  * Created by Tim on 1/22/18.
  */
+
+const val TAG:String = "SearchFragTAG"
+
 class SearchFrag : Fragment(), View.OnClickListener{
 
 
-    val TAG:String = "SearchFragTAG"
-
     lateinit var editText:EditText
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+
+        if (context is onCancel) {
+            listener = context
+        } else {
+            throw ClassCastException(context.toString() + " must implement onCancel.")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,10 +64,19 @@ class SearchFrag : Fragment(), View.OnClickListener{
             }
             R.id.bt_teamSearchFrag_cancel -> {
                 toast("Canceling")
+                listener.onCancel()
             }
             else -> {
                 toast("Hit else block in TestFrag onClick function")
+                Log.e(TAG, "Hit else block in TestFrag onClick function")
             }
         }
     }
+
+
+    interface onCancel {
+        fun onCancel()
+    }
+
+    private lateinit var listener: onCancel
 }

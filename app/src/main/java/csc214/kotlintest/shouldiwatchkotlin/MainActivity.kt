@@ -10,7 +10,7 @@ import android.widget.Toast
 import com.google.api.client.googleapis.*
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
 
     val TAG:String = "MainActivityTAG"
 
@@ -30,6 +30,13 @@ class MainActivity : AppCompatActivity() {
 //        transaction.commit()
     }
 
+    override fun onCancel() {
+        toast("Canceled!!!")
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_frame_mainActivity, testFrag)
+                .commit()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         Log.d(TAG, "onCreateOptionsMenu called")
@@ -47,7 +54,8 @@ class MainActivity : AppCompatActivity() {
                 toast("Add team")
                 searchFrag = SearchFrag()
                 supportFragmentManager.beginTransaction()
-                        .replace(R.id.fl_frame_mainActivity, searchFrag)
+//                        .replace(R.id.fl_frame_mainActivity, searchFrag)
+                        .add(R.id.fl_frame_mainActivity, searchFrag)
                         .commit()
                 return super.onOptionsItemSelected(item)
             }
@@ -58,4 +66,13 @@ class MainActivity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
 }
+
+
+
+
+
+
+
+
