@@ -5,18 +5,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 
-import com.google.api.client.googleapis.*
 import org.jetbrains.anko.toast
 
-class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
+class MainActivity : AppCompatActivity(), SearchFrag.SearchListener, SettingsFrag.SettingsListener {
+
 
     val TAG:String = "MainActivityTAG"
 
     val testFrag = TestFrag()
     var searchFrag = SearchFrag()
-
+    var settingsFrag = SettingsFrag()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +39,10 @@ class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
         onBackPressed()
     }
 
+    override fun onOkay() {
+        onBackPressed()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         Log.d(TAG, "onCreateOptionsMenu called")
@@ -57,20 +60,28 @@ class MainActivity : AppCompatActivity(), SearchFrag.onCancel {
                 toast("Add team")
                 searchFrag = SearchFrag()
                 supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fl_frame_mainActivity, searchFrag)
-                        .add(R.id.fl_frame_mainActivity, searchFrag)
+                        .replace(R.id.fl_frame_mainActivity, searchFrag)
+//                        .add(R.id.fl_frame_mainActivity, searchFrag)
                         .addToBackStack(null)
                         .commit()
                 return super.onOptionsItemSelected(item)
             }
             R.id.menu_settings -> {
                 toast("Settings")
+                settingsFrag = SettingsFrag()
+                supportFragmentManager.beginTransaction()
+                        .replace(R.id.fl_frame_mainActivity, settingsFrag)
+//                        .add(R.id.fl_frame_mainActivity, settingsFrag)
+                        .addToBackStack(null)
+                        .commit()
                 return super.onOptionsItemSelected(item)
             }
             else -> return super.onOptionsItemSelected(item)
         }
     }
 
+//    TODO: currently, if in search frag and go to settings frag, back button
+//              brings back to search frag... is that good, or should it go home?
     override fun onBackPressed() {
         val count = supportFragmentManager.backStackEntryCount
 

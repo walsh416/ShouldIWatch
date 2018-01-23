@@ -28,17 +28,17 @@ class SearchFrag : Fragment(), View.OnClickListener{
     override fun onAttach(context: Context?) {
         super.onAttach(context)
 
-        if (context is onCancel) {
+        if (context is SearchListener) {
             listener = context
         } else {
-            throw ClassCastException(context.toString() + " must implement onCancel.")
+            throw ClassCastException(context.toString() + " must implement SearchListener.")
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+////        setHasOptionsMenu(true)
+//    }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(TAG, "onCreateView called")
@@ -74,9 +74,9 @@ class SearchFrag : Fragment(), View.OnClickListener{
     }
 
 
-    interface onCancel {
+    interface SearchListener {
         fun onCancel()
     }
 
-    private lateinit var listener: onCancel
+    private lateinit var listener: SearchListener
 }
