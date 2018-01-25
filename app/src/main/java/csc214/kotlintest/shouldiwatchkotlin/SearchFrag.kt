@@ -13,7 +13,6 @@ import android.widget.EditText
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.toast
 
-
 /**
  * Created by Tim on 1/22/18.
  */
@@ -21,7 +20,6 @@ import org.jetbrains.anko.support.v4.toast
 const val TAG:String = "SearchFragTAG"
 
 class SearchFrag : Fragment(), View.OnClickListener{
-
 
     lateinit var editText:EditText
 

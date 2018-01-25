@@ -2,6 +2,7 @@ package csc214.kotlintest.shouldiwatchkotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.SharedPreferencesCompat
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -13,6 +14,8 @@ class MainActivity : AppCompatActivity(), SearchFrag.SearchListener, SettingsFra
 
     val TAG:String = "MainActivityTAG"
 
+    lateinit var prefs: Prefs
+
     val testFrag = TestFrag()
     var searchFrag = SearchFrag()
     var settingsFrag = SettingsFrag()
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity(), SearchFrag.SearchListener, SettingsFra
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        prefs = Prefs(this)
 //        setHasOptionsMenu(true)
 
 //        testFrag.arguments = intent.extras
